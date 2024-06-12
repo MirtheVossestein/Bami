@@ -1,4 +1,31 @@
+.bg-olivegreen {
+    background-color: #3f4122;
+}
+
 .olivegreen {
+    color: #3f4122;
+}
+
+.bg-olive {
+    background-color: #536f16;
+}
+
+.olive {
+    color: #536f16;
+}
+
+.bg-pewter {
+    background-color: #d4d6cf;
+}
+
+.pewter {
+    color: #d4d6cf;
+}
+
+.bg-darkgreen {
     background-color: #013a20;
 }
 
+.darkgreen {
+    color: #013a20;
+}
