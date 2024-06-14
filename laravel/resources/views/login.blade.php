@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="font-ubuntu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Material Icons -->
 </head>
-<body class=" ubuntu-regular font-sans bg-gray-200">
+<body class="ubuntu-regular font-sans bg-gray-200">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center bg-green-800 p-4 text-white">
+        <div class="flex items-center">
+            <span class="ml-4 text-2xl">BaMiHuisjes</span>
+        </div>
+        <div class="flex items-center justify-center">
+            <span class="material-icons text-white text-3xl">account_circle</span> <!-- User Icon -->
+        </div>
+    </nav>
+
+    <!-- Login Form Container -->
     <div class="max-w-lg mx-auto p-4 bg-white rounded shadow-md mt-20">
         <h2 class="text-2xl font-bold mb-5">Login</h2>
         <form action="/login" method="POST" class="space-y-4">
@@ -29,5 +44,6 @@
             @enderror
         </form>
     </div>
+
 </body>
 </html>

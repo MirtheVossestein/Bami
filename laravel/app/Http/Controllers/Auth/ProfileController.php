@@ -29,7 +29,7 @@ class ProfileController extends Controller
         // Attempt to log the user in
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             // If successful, then redirect to their intended location
-            return redirect()->intended(route('index'));
+            return redirect()->intended(route('dashboard'));
         } else {
             // If unsuccessful, then redirect back to the login with form data
             return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors([
