@@ -1,5 +1,12 @@
+
+.ubuntu-light {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
 .bg-olivegreen {
-    background-color: #3f4122;
+    background-color: #3f4122;  
 }
 
 .olivegreen {
@@ -29,3 +36,4 @@
 .darkgreen {
     color: #013a20;
 }
+
