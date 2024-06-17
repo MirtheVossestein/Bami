@@ -12,6 +12,10 @@ Route::get('/user', function () {
     return view('login');
 });
 
+Route::get('/houses', function () {
+    return view('houses');
+})->name('houses');
+
 Route::get('/login', [ProfileController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [ProfileController::class, 'login']);
 Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
@@ -19,3 +23,4 @@ Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 Route::get('/index', function () {
     return view('index');
 })->middleware('auth')->name('index');
+
