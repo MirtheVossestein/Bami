@@ -24,3 +24,6 @@ Route::get('/index', function () {
     return view('index');
 })->middleware('auth')->name('index');
 
+Route::get('/house1', function () {
+    return view('house1');
+})->name('house1');
