@@ -85,7 +85,7 @@
           <span class="material-icons text-black text-lg">pool</span> <!-- User Icon -->
 
 
-          <span class="text-2 font-bold text-slate-900">6 Personen - <span class="italic text-slade-800">2 Slaapkamers</span></span>
+          <span class="text-2 font-bold text-slate-900">4 Personen - <span class="italic text-slade-800">2 Slaapkamers</span></span>
           </p>
           <div class="flex items-center">
             <!-- Rating SVGs -->
