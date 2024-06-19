@@ -30,6 +30,27 @@
       <h1 class="text-sm">Account</h1> 
     </a>
     </div>
+
+    <button id="openDialogBtn">Open Dialog</button>
+    <dialog id="simpleDialog">
+        <h2>Simple Dialog</h2>
+        <p>This is a simple dialog model.</p>
+        <button id="closeDialogBtn">Close</button>
+    </dialog>
+
+    <script>
+        const dialog = document.getElementById('simpleDialog');
+        const openDialogBtn = document.getElementById('openDialogBtn');
+        const closeDialogBtn = document.getElementById('closeDialogBtn');
+
+        openDialogBtn.addEventListener('click', function () {
+            dialog.showModal(); // use dialog.show() if you don't want to make it modal
+        });
+
+        closeDialogBtn.addEventListener('click', function () {
+            dialog.close();
+        });
+    </script>
   </div>
 
   
