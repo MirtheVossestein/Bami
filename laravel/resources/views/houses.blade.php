@@ -33,7 +33,38 @@
 
   <!-- House Cards Section -->
   <div class="flex justify-center mt-10">
-    <!-- House Card 1 -->
+
+   <!-- House Card 1 -->
+   <div class="relative m-4 flex w-full max-w-xs flex-col hover:scale-105 transition-all overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
+        <img class="object-cover" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen"/>
+        <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">Nieuw!</span>
+      </a>
+
+      <div class="mt-4 px-5 pb-5">
+        <a href="#">
+          <h5 class="text-xl tracking-tight font-bold text-slate-900">Natuurhuisje in Voorthuizen</h5>
+        </a>
+        <div class="mt-2 mb-5 flex items-center justify-between">
+          <p>
+          <span class="material-icons text-black text-lg">wifi</span> <!-- User Icon -->
+          <span class="material-icons text-black text-lg">person</span> <!-- User Icon -->
+          <span class="material-icons text-black text-lg">pool</span> <!-- User Icon -->
+
+
+          <span class="text-2 font-bold text-slate-900">4 Personen - <span class="italic text-slade-800">2 Slaapkamers</span></span>
+          </p>
+          <div class="flex items-center">
+            <!-- Rating SVGs -->
+          </div>
+        </div>
+        <a href="house1" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+          Bekijk huisje
+        </a>
+      </div>
+    </div>
+
+    <!-- House Card 2 -->
     <div class="relative m-4 flex w-full max-w-xs hover:scale-105 transition-all flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
       <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
         <img class="object-cover" src="{{ asset('images/Hierden/HouseH.jpg') }}" alt="Hierden"/>
@@ -64,35 +95,7 @@
       </div>
     </div>
 
-    <!-- House Card 2 -->
-    <div class="relative m-4 flex w-full max-w-xs flex-col hover:scale-105 transition-all overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-      <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-        <img class="object-cover" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen"/>
-        <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">Nieuw!</span>
-      </a>
-
-      <div class="mt-4 px-5 pb-5">
-        <a href="#">
-          <h5 class="text-xl tracking-tight font-bold text-slate-900">Natuurhuisje in Voorthuizen</h5>
-        </a>
-        <div class="mt-2 mb-5 flex items-center justify-between">
-          <p>
-          <span class="material-icons text-black text-lg">wifi</span> <!-- User Icon -->
-          <span class="material-icons text-black text-lg">person</span> <!-- User Icon -->
-          <span class="material-icons text-black text-lg">pool</span> <!-- User Icon -->
-
-
-          <span class="text-2 font-bold text-slate-900">4 Personen - <span class="italic text-slade-800">2 Slaapkamers</span></span>
-          </p>
-          <div class="flex items-center">
-            <!-- Rating SVGs -->
-          </div>
-        </div>
-        <a href="house2" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-          Bekijk huisje
-        </a>
-      </div>
-    </div>
+   
 
     <!-- House Card 3 -->
     <div class="relative m-4 flex w-full hover:scale-105 hover:opacity-80 max-w-xs transition-all flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
