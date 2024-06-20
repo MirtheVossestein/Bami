@@ -1,20 +1,16 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateReservationsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->integer('userId');
-            $table->integer('houseId');
+            $table->unsignedBigInteger('userId');
+            $table->unsignedBigInteger('houseId');
             $table->string('startDay');
             $table->string('startTime');
             $table->string('endDay');
@@ -23,12 +19,10 @@ return new class extends Migration
         });
     }
 
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('reservations');
     }
-};
+}
+
+
