@@ -20,7 +20,7 @@
         }
     </style>
 </head>
- 
+
 <body class="ubuntu-medium">
     <nav class="flex justify-between h-28 items-center bg-green-800 p-4 text-white">
         <div class="flex items-center">
@@ -29,13 +29,13 @@
         </a> 
         </div>
         <div class="flex items-center justify-center">
-            <span class="material-icons text-white text-3xl">account_circle</span> <!-- User Icon -->
+            <span class="material-icons text-white text-3xl">account_circle</span>
         </div>
     </nav>
 
     <div class="max-w-lg mx-auto p-4 bg-white rounded shadow-md mt-20">
         <h2 class="text-2xl text-center font-bold mb-5">Registreer hier.</h2>
-        <form action="/register" method="POST" class="space-y-4">
+        <form action="/adduser" method="POST" class="space-y-4">
             @csrf
             <div class="flex flex-col">
                 <label for="email" class="font-bold mb-1">E-mail:</label>

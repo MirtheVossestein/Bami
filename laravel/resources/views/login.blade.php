@@ -35,7 +35,7 @@
 
     <div class="max-w-lg mx-auto p-4 bg-white rounded shadow-md mt-20">
         <h2 class="text-2xl text-center font-bold mb-5">Log hier in.</h2>
-        <form action="/login" method="POST" class="space-y-4">
+        <form action="/loginuser" method="POST" class="space-y-4">
             @csrf
             <div class="flex flex-col">
                 <label for="email" class="font-bold mb-1">E-mail:</label>

@@ -26,9 +26,15 @@
         <div class="absolute z-20 top-4 right-32 py-1 px-16 right-2 shadow-lg bg-white rounded-lg p-2 hover:scale-110 hover:opacity-85">
             <h1 class="text-sm">Contact</h1>
         </div>
-        <a href="login" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 hover:scale-110 hover:opacity-85">
-            <h1 class="text-sm">Login</h1>
-        </a>
+        @if(session('isLoggedIn'))
+            <a href="logout" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 hover:scale-110 hover:opacity-85">
+                <h1 class="text-sm">Logout</h1>
+            </a>
+        @else
+            <a href="login" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 hover:scale-110 hover:opacity-85">
+                <h1 class="text-sm">Login</h1>
+            </a>
+        @endif
         </div>
     </div>
     <div class="h-12 bg-green-700"></div>
