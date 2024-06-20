@@ -31,42 +31,50 @@
     </a>
     </div>
 
-<=== text boxen omschrijvingen langer maken ==>
-    <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg shadow-xl w-48 mt-4 ml-4"> Voeg vakantiehuis toe</button>
-    <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
-      <h2 class="p-2 text-2xl text-center "> Vul de benodigde informatie in:</h2>
-        <form action="/register" method="POST" class="space-y-4">
-            @csrf
-            <div class="flex flex-col">
+    <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
+<dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
+    <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
+    <form action="/register" method="POST" class="space-y-4">
+        @csrf
+        <div class="flex flex-wrap justify-center space-x-4">
+            <div class="flex flex-col items-center">
                 <label for="house_name" class="mb-1">Soort huisje:</label>
                 <input type="text" id="house_name" name="house_name" required class="p-2 border border-gray-300 rounded h-7 w-64">
             </div>
-            <div class="flex flex-col">
-                <label for="location_house" class=" mb-1">Plaatsnaam huisje:</label>
-                <input type="text" id="location_house" name="location_house" required class="p-2 border  border-gray-300 h-7 rounded">
+            <div class="flex flex-col items-center">
+                <label for="location_house" class="mb-1">Plaatsnaam huisje:</label>
+                <input type="text" id="location_house" name="location_house" required class="p-2 border border-gray-300 rounded h-7 w-64">
             </div>
-            <div class="flex flex-col">
-                <label for="amount_people" class=" mb-1">Hoeveel persoons:</label>
-                <input type="number" id="amount_people" name="amount_people" required class="p-2 border border-gray-300 h-7 rounded">
+        </div>
+        <div class="flex flex-wrap justify-center space-x-4">
+            <div class="flex flex-col items-center">
+                <label for="amount_people" class="mb-1">Hoeveel persoons:</label>
+                <input type="number" id="amount_people" name="amount_people" required class="p-2 border border-gray-300 rounded h-7 w-64">
             </div>
-            <div class="flex flex-col">
-                <label for="amount_bedrooms" class=" mb-1">Hoeveel slaapkamers:</label>
-                <input type="number" id="amount_bedrooms" name="amount_bedrooms" required class="p-2 border border-gray-300 h-7 rounded ">
+            <div class="flex flex-col items-center">
+                <label for="amount_bedrooms" class="mb-1">Hoeveel slaapkamers:</label>
+                <input type="number" id="amount_bedrooms" name="amount_bedrooms" required class="p-2 border border-gray-300 rounded h-7 w-64">
             </div>
-            <div class="flex flex-col">
-                <label for="description_location" class=" mb-1">Omschrijving omgeving huisje:</label>
-                <input type="text" id="description_location" name="description_location" required class="p-2 border border-gray-300 h-7 rounded ">
-            </div>
-            <div class="flex flex-col">
-                <label for="description_house" class="mb-1">Omschrijving wat huisje bevat:</label>
-                <input type="text" id="description_house" name="description_house" required class="p-2 border border-gray-300 h-7 rounded">
-            </div>
-            <div class="flex flex-col">
-                <label for="price" class="  mb-1">Prijs per nacht:</label>
-                <input type="number" id="price" name="price" required class="p-2 border border-gray-300 h-7 rounded">
-            </div>
-        <button id="closeDialogBtn">Close</button>
-    </dialog>
+        </div>
+        <div class="flex flex-col items-center">
+            <label for="description_location" class="mb-1">Omschrijving omgeving huisje:</label>
+            <textarea id="description_location" name="description_location" required class="p-2 border border-gray-300 rounded" rows="4" cols="50"></textarea>
+        </div>
+        <div class="flex flex-col items-center">
+            <label for="description_house" class="mb-1">Omschrijving wat huisje bevat:</label>
+            <textarea id="description_house" name="description_house" required class="p-2 border border-gray-300 rounded" rows="4" cols="50"></textarea>
+        </div>
+        <div class="flex flex-col items-center">
+            <label for="price" class="mb-1">Prijs per nacht:</label>
+            <input type="number" id="price" name="price" required class="p-2 border border-gray-300 rounded h-7 w-64">
+        </div>
+        <div class="flex justify-center">
+            <button type="submit" class=" bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
+            <button id="closeDialogBtn" class="bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
+        </div>
+    </form>
+</dialog>
+
 
     <script>
         const dialog = document.getElementById('simpleDialog');
