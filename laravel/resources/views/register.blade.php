@@ -24,7 +24,7 @@
 <body class="ubuntu-medium">
     <nav class="flex justify-between h-28 items-center bg-green-800 p-4 text-white">
         <div class="flex items-center">
-            <a href="index.blade.php" class="absolute top-2 left-4 z-20 text-white text-4xl ">
+            <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl ">
             BaMihuisjes.com
         </a> 
         </div>

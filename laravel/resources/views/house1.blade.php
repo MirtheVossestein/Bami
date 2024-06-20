@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
 
@@ -21,7 +23,7 @@
     <div class="bg-green-800 h-28 text-white py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
             <div>
-                <a href="index" class="text-4xl font-bold">BaMihuisjes.com</a>
+                <a href="http://127.0.0.1:8000/" class="text-4xl font-bold">BaMihuisjes.com</a>
             </div>
             <div class="space-x-4">
                 <a href="houses" class="text-sm text-black absolute z-20 top-4 right-80 py-1 px-16 rounded-lg transition-all hover:bg-white shadow-lg bg-white rounded-lg p-2 hover:scale-105 hover:opacity-85">Vakantiehuizen</a>
@@ -38,6 +40,26 @@
                     <div class="h-72 md:h-96 bg-gray-300 rounded-lg mb-4">
                         <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
                     </div>
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Slide 1">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV2.png') }}" alt="Slide 2">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV3.png') }}" alt="Slide 3">
+                            </div>
+                            <!-- Add more slides as needed -->
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
                     <div class="flex justify-end mb-4">
                     <button class="w-1/2  text-gray-800 py-2 rounded-lg font-bold">Reviews</button>
                         <button class="w-1/2 bg-gray-200 text-gray-800 py-2 rounded-lg hover:scale-105 hover:opacity-85 transition-all rounded-lg hover:bg-gray-300 font-bold">Reserveren</button>
@@ -116,6 +138,52 @@
           startCalendar.set('maxDate', null);
         }
       }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var startCalendar = flatpickr("#start-date", {
+      dateFormat: "d-m-Y",
+      onChange: function(selectedDates, dateStr, instance) {
+        if (selectedDates.length > 0) {
+          var minEndDate = new Date(selectedDates[0]);
+          minEndDate.setDate(minEndDate.getDate() + 5); 
+          endCalendar.set('minDate', minEndDate);
+        } else {
+          endCalendar.set('minDate', null);
+        }
+      }
+    });
+
+    var endCalendar = flatpickr("#end-date", {
+      dateFormat: "d-m-Y",
+      onChange: function(selectedDates, dateStr, instance) {
+        if (selectedDates.length > 0) {
+          var minStartDate = new Date(selectedDates[0]);
+          minStartDate.setDate(minStartDate.getDate() - 5); 
+          startCalendar.set('maxDate', null);
+        } else {
+          startCalendar.set('maxDate', null);
+        }
+      }
+    });
+
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 5000,
+      },
     });
   });
 </script>

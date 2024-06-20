@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,28 +14,54 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
 <body class="h-screen flex flex-col ubuntu-medium">
-  <div class="relative h-52 bg-green-800 flex items-center justify-center ">
-    <a href="index.blade.php" class="absolute top-2 left-4 z-20 text-white text-4xl ">
-      BaMihuisjes.com
-      
-    <a href="houses" class="absolute z-20 top-4 right-80 py-1 px-16 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
-      <h1 class="text-sm">Vakantiehuizen</h1>
-    </a>
-    <a href="contact" class="absolute z-20 top-4 right-32 py-1 px-16 right-2 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
-      <h1 class="text-sm">Contact</h1>
-    </a>
+    <div class="relative h-52 bg-green-800 flex items-center justify-center ">
+        <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl">
+            BaMihuisjes.com
+        </a>
+        <a href="houses" class="absolute z-20 top-4 right-80 py-1 px-16 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
+            <h1 class="text-sm">Vakantiehuizen</h1>
+        </a>
+        <a href="contact" class="absolute z-20 top-4 right-32 py-1 px-16 right-2 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
+            <h1 class="text-sm">Contact</h1>
+        </a>
+
+        <!-- Account dropdown button -->
+        <div class=" z-20">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
+                <h1 class="text-sm">Account</h1>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdown" class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <a href="login" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
-      <h1 class="text-sm">Account</h1> 
-    </a>
-    </div>
+
+    
+ 
+
+    
+
 
     <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
 <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
     <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
-    <form action="/register" method="POST" class="space-y-4">
+    <form action="/register" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
         <div class="flex flex-wrap justify-center space-x-4">
             <div class="flex flex-col items-center">
@@ -68,12 +95,17 @@
             <label for="price" class="mb-1">Prijs per nacht:</label>
             <input type="number" id="price" name="price" required class="p-2 border border-gray-300 rounded h-7 w-64">
         </div>
+        <div class="flex flex-col items-center">
+            <label for="image" class="mb-1">Voeg (max 20) afbeeldingen van het huisje toe:</label>
+            <input type="file" id="image" name="image" required class="p-2 border border-gray-300 rounded w-64">
+        </div>
         <div class="flex justify-center">
-            <button type="submit" class=" bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
+            <button type="submit" class="bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
             <button id="closeDialogBtn" class="bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
         </div>
     </form>
 </dialog>
+
 
 
     <script>
@@ -82,14 +114,42 @@
         const closeDialogBtn = document.getElementById('closeDialogBtn');
 
         openDialogBtn.addEventListener('click', function () {
-            dialog.showModal(); // use dialog.show() if you don't want to make it modal
+            dialog.showModal(); 
         });
 
         closeDialogBtn.addEventListener('click', function () {
             dialog.close();
         });
     </script>
-  </div>
+
+     <style>
+        #dropdownDefaultButton:hover + #dropdown,
+        #dropdown:hover {
+            display: block;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownButton = document.getElementById('dropdownDefaultButton');
+            const dropdownMenu = document.getElementById('dropdown');
+
+            dropdownButton.addEventListener('mouseenter', function () {
+                dropdownMenu.classList.remove('hidden');
+            });
+
+            dropdownMenu.addEventListener('mouseleave', function () {
+                dropdownMenu.classList.add('hidden');
+            });
+
+            dropdownMenu.addEventListener('mouseenter', function () {
+                dropdownMenu.classList.remove('hidden');
+            });
+        });
+    </script>
+
+
+
 
   
 

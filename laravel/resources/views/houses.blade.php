@@ -15,7 +15,7 @@
 
 <body class="h-screen flex flex-col ubuntu-medium">
   <div class="relative h-28 bg-green-800 flex items-center justify-center ">
-    <a href="index.blade.php" class="absolute top-2 left-4 z-20 text-white text-4xl ">
+    <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl ">
       BaMihuisjes.com
       
     <a href="houses" class="absolute z-20 top-4 right-80 py-1 px-16 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">

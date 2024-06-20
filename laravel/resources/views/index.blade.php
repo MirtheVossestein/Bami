@@ -16,11 +16,10 @@
 </head>
 <body class="h-screen flex flex-col ubuntu-medium">
     <div class="relative h-72 bg-green-800 flex items-center justify-center ">
-        <a href="index.blade.php" class="absolute top-2 left-4 z-20 text-white text-4xl ">
+        <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl ">
             BaMihuisjes.com
         </a>
-        <h2 class="ubuntu-bold-italic absolute left-2 top-36 z-20 text-white text-7xl ">Welkom!</h2>
-        <h2 class="ubuntu-regular-italic absolute left-4 top-52 z-20 text-white text-4xl ">Vind hier jouw vakantiehuisje midden in de natuur.</h2>
+        <h2 class="ubuntu-regular-italic absolute left-4 top-52 z-20 text-white text-4xl ">Jouw smakelijke vakantiehuisje midden in de natuur.</h2>
         <a href="houses" class="absolute z-20 top-4 right-80 py-1 px-16 shadow-lg bg-white rounded-lg p-2 hover:scale-110 hover:opacity-85">
             <h1 class="text-sm">Vakantiehuizen</h1>
         </a>
