@@ -62,9 +62,10 @@
         </div>
     </div>
 
+<div class="h-12 bg-green-700">
 
     <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
-<dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
+    <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
     <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
     <form action="/addhouse" method="POST" enctype="multipart/form-data" class="space-y-4">
     @csrf
@@ -120,7 +121,23 @@
             </div>
         </form>
 </dialog>
+</div>
 
+<div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
+        <div class="flex justify-between items-start">
+            <div class="flex flex-col">
+                <h1 class="text-sm text-white p-1">Soort huisje:</h1>
+                <h1 class="text-sm text-white p-1">Hoeveel persoons:</h1>
+                <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: bekijk hier</h1>
+            </div>
+            <div class="flex flex-col  mx-auto">
+                <h1 class="text-sm text-white p-1">Locatie huisje:</h1>
+                <h1 class="text-sm text-white p-1">Hoeveel slaapkamers:</h1>
+                <h1 class="text-sm text-white p-1">Prijs per nacht:</h1>
+            </div>
+            <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
+        </div>
+    </div>
 
 
     <script>
