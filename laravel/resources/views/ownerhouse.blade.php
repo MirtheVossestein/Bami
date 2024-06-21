@@ -37,16 +37,16 @@
                 <div id="dropdown" class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            <a href="profile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profiel</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            <a href="ownerhouse" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn vakantiehuizen</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            <a href="reservations" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn reserveringen</a>
                         </li>
                         <li>
-                            <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                            <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log uit</a>
                         </li>
                     </ul>
                 </div>
@@ -54,7 +54,7 @@
                 <div id="dropdown" class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                         <li>
-                            <a href="/login" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sing In</a>
+                            <a href="/login" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log in</a>
                         </li>
                     </ul>
                 </div>
@@ -63,7 +63,7 @@
     </div>
 
 
-    <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
+    <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
 <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
     <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
     <form action="/register" method="POST" enctype="multipart/form-data" class="space-y-4">
@@ -105,8 +105,8 @@
             <input type="file" id="image" name="image" required class="p-2 border border-gray-300 rounded w-64">
         </div>
         <div class="flex justify-center">
-            <button type="submit" class="bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
-            <button id="closeDialogBtn" class="bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
+            <button type="submit" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
+            <button id="closeDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
         </div>
     </form>
 </dialog>
