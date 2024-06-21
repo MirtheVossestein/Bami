@@ -16,7 +16,8 @@ class CreateHousesTable extends Migration
             $table->string('zipcode');
             $table->integer('personCapacity');
             $table->integer('rooms');
-            $table->text('description');
+            $table->text('descriptionLocation');
+            $table->text('descriptionHouse');
             $table->float('price');
             $table->timestamps();
         });

@@ -13,16 +13,18 @@ class HouseController extends Controller
         $house = new House();
 
         $house->ownerId = Session::get('loggedInUserId');
-        $house->name = $request['house_name'];
         $house->category = $request['house_name'];
         $house->city = $request['house_location'];
+        $house->address = 'Lolweg 11';
+        $house->zipcode = '3781MH';
         $house->personCapacity = $request['amount_people'];
-        $house->rooms = $request['amount_rooms'];
-        $house->name = $request['house_name'];
+        $house->rooms = $request['amount_bedrooms'];
         $house->descriptionLocation = $request['description_location'];
         $house->DescriptionHouse = $request['description_house'];
         $house->price = $request['price'];
 
         $house->save();
+
+        return view('ownerhouse');
     }
 }
