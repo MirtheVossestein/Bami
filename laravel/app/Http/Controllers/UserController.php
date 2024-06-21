@@ -30,6 +30,7 @@ class UserController extends Controller{
             $hashedPassword = $user->password;
             if(password_verify($request['password'], $hashedPassword)){
                 Session::put('isLoggedIn', true);
+                Session::put('loggedInUserId', $user['id']);
                 return view('index');
             } else{
                 return view('login');

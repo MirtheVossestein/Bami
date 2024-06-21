@@ -66,7 +66,7 @@
     <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
 <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
     <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
-    <form action="/register" method="POST" enctype="multipart/form-data" class="space-y-4">
+    <form action="/addhouse" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
         <div class="flex flex-wrap justify-center space-x-4">
             <div class="flex flex-col items-center">
@@ -75,7 +75,7 @@
             </div>
             <div class="flex flex-col items-center">
                 <label for="location_house" class="mb-1">Plaatsnaam huisje:</label>
-                <input type="text" id="location_house" name="location_house" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                <input type="text" id="location_house" name="house_location" required class="p-2 border border-gray-300 rounded h-7 w-64">
             </div>
         </div>
         <div class="flex flex-wrap justify-center space-x-4">
