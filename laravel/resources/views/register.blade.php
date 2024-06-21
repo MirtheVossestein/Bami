@@ -28,9 +28,7 @@
             BaMihuisjes.com
         </a> 
         </div>
-        <div class="flex items-center justify-center">
-            <span class="material-icons text-white text-3xl">account_circle</span>
-        </div>
+       
     </nav>
 
     <div class="max-w-lg mx-auto p-4 bg-white rounded shadow-md mt-20">

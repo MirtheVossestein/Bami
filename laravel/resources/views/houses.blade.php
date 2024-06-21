@@ -25,9 +25,39 @@
       <h1 class="text-sm">Contact</h1>
     </a>
     </div>
-    <a href="login" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
-      <h1 class="text-sm">Login</h1>
-    </a>
+
+    <button id="dropdownDefaultButton" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
+          <h1 class="text-sm text-black">Account</h1>
+        </button>
+        
+            
+        @if(session('isLoggedIn'))
+        <div id="dropdown" class="hidden absolute z-50 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <a href="profile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profiel</a>
+            </li>
+            <li>
+              <a href="ownerhouse" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn vakantiehuizen</a>
+            </li>
+            <li>
+              <a href="reservations" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn reserveringen</a>
+            </li>
+            <li>
+              <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log uit</a>
+            </li>
+          </ul>
+        </div>
+        @else
+        <div id="dropdown" class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <a href="/login" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log in</a>
+            </li>
+          </ul>
+        </div>
+        @endif
+      </div>
     </div>
   </div>
 
@@ -127,10 +157,34 @@
       </div>
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdownButton = document.getElementById('dropdownDefaultButton');
+      const dropdownMenu = document.getElementById('dropdown');
 
-  
+      dropdownButton.addEventListener('mouseenter', function () {
+        dropdownMenu.classList.remove('hidden');
+      });
 
-  
+      dropdownButton.addEventListener('mouseleave', function () {
+        setTimeout(() => {
+          if (!dropdownMenu.matches(':hover')) {
+            dropdownMenu.classList.add('hidden');
+          }
+        }, 300);
+      });
 
+      dropdownMenu.addEventListener('mouseleave', function () {
+        dropdownMenu.classList.add('hidden');
+      });
+
+      dropdownMenu.addEventListener('mouseenter', function () {
+        dropdownMenu.classList.remove('hidden');
+      });
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
+
 </html>

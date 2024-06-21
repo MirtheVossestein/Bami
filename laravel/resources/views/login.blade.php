@@ -28,9 +28,7 @@
             BaMihuisjes.com
         </a> 
         </div>
-        <div class="flex items-center justify-center">
-            <span class="material-icons text-white text-3xl">account_circle</span> <!-- User Icon -->
-        </div>
+       
     </nav>
 
     <div class="max-w-lg mx-auto p-4 bg-white rounded shadow-md mt-20">
@@ -46,7 +44,7 @@
                 <input type="password" id="password" name="password" required class="p-2 border border-gray-300 rounded">
             </div>
             <div class="flex flex-col">
-                <button type="submit" class="p-2 bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 w-full">Login</button>
+                <button type="submit" class="p-2 bg-green-800 text-white rounded transition-all cursor-pointer hover:bg-green-700 w-full">Login</button>
                 <div class="mt-8 text-center">
                     <a href="/register" class="text-green-800 hover:text-green-700">Nog geen account? Registreer hier.</a>
                 </div>
