@@ -10,7 +10,6 @@ class CreateHousesTable extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ownerId');
-            $table->string('name');
             $table->string('category');
             $table->string('city');
             $table->string('address');

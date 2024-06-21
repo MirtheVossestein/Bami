@@ -9,5 +9,5 @@ class House extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ownerId', 'name', 'category', 'city', 'address', 'zipcode', 'personCapacity', 'rooms', 'description', 'price'];
+    protected $fillable = ['ownerId', 'category', 'city', 'address', 'zipcode', 'personCapacity', 'rooms', 'descriptionLocation', 'descriptionHouse', 'price'];
 }
