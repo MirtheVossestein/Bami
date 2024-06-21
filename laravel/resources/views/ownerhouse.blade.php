@@ -62,11 +62,6 @@
         </div>
     </div>
 
-    
- 
-
-    
-
 
     <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
 <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
