@@ -112,7 +112,7 @@
             </div>
             <div class="flex flex-col items-center">
                 <label for="image" class="mb-1">Voeg (max 20) afbeeldingen van het huisje toe:</label>
-                <input type="file" id="image" name="image" required class="p-2 border border-gray-300 rounded w-64">
+                <input type="file" id="image" name="image" enctype="multipart/form-data" required class="p-2 border border-gray-300 rounded w-64">
             </div>
             <div class="flex justify-center">
                 <button type="submit" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
