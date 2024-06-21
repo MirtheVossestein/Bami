@@ -48,6 +48,14 @@
                 <input type="text" id="last_name" name="last_name" required class="p-2 border border-gray-300 rounded">
             </div>
             <div class="flex flex-col">
+                <label for="adress" class="font-bold mb-1">Adres:</label>
+                <input type="text" id="adress" name="adress" required class="p-2 border border-gray-300 rounded">
+            </div>
+            <div class="flex flex-col">
+                <label for="dateofbirth" class="font-bold mb-1">Geboortedatum:</label>
+                <input type="text" id="dateofbirth" name="dateofbirth" placeholder="dd/mm/yy" class="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="flex flex-col">
                 <label for="phone" class="font-bold mb-1">Telefoonnummer:</label>
                 <input type="tel" id="phone" name="phone" required class="p-2 border border-gray-300 rounded">
             </div>

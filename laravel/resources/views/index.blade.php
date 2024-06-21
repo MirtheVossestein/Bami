@@ -62,13 +62,13 @@
 
     <div class="flex justify-center shadow-lg mt-8">
         <div class="w-72 h-64 mb-4 mx-8">
-            <img class="rounded-lg object-scale-down w-full h-full object-left-bottom transition-all hover:scale-110 hover:opacity-80" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
+            <img class="rounded-lg object-scale-down w-full h-full object-left-bottom transition-all hover:scale-105 " src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
         </div>
         <div class="w-72 h-58 mb-4 mx-8">
-            <img class="rounded-lg object-scale-down w-full h-full object-left-bottom transition-all hover:scale-110 hover:opacity-80" src="{{ asset('images/Olburgen/HouseO.jpg') }}" alt="Olborgen">
+            <img class="rounded-lg object-scale-down w-full h-full object-left-bottom transition-all hover:scale-105 " src="{{ asset('images/Olburgen/HouseO.jpg') }}" alt="Olborgen">
         </div>
         <div class="w-72 h-64 mb-4 mx-8">
-            <img class="rounded-lg object-scale-down w-full h-full object-left-bottom transition-all  hover:scale-110 hover:opacity-80" src="{{ asset('images/Hierden/HouseH.jpg') }}" alt="Hierden">
+            <img class="rounded-lg object-scale-down w-full h-full object-left-bottom transition-all  hover:scale-105 " src="{{ asset('images/Hierden/HouseH.jpg') }}" alt="Hierden">
         </div>
     </div>
    

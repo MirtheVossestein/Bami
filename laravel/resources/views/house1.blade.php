@@ -17,13 +17,14 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  
 </head>
 
 <body class="ubuntu-medium bg-gray-100">
   <div class="bg-green-800 h-28 text-white py-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
       <div>
-        <a href="http://127.0.0.1:8000/" class="text-4xl font-bold">BaMihuisjes.com</a>
+        <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl ">BaMihuisjes.com</a>
       </div>
       <div class="space-x-4">
         <a href="houses" class="text-sm text-black absolute z-20 top-4 right-80 py-1 px-16 rounded-lg transition-all hover:bg-white shadow-lg bg-white p-2 hover:scale-105 hover:opacity-85">Vakantiehuizen</a>
@@ -71,27 +72,35 @@
           <div class="h-72 md:h-96 bg-gray-300 rounded-lg mb-4">
             <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
           </div>
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Slide 1">
-              </div>
-              <div class="swiper-slide">
-                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV2.png') }}" alt="Slide 2">
-              </div>
-              <div class="swiper-slide">
-                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV3.png') }}" alt="Slide 3">
-              </div>
-              <!-- Add more slides as needed -->
+        
+      <div class="flex">
+    <!-- Eerste carousel -->
+    <div id="default-carousel-1" class="carousel md:w-1/2 m-1 mr-4" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-48 overflow-hidden rounded-lg">
+            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/bedroom2.png') }}" alt="bedroom2">
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-            <!-- Add Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
+            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/bathroom.png') }}" alt="bathroom">
+            </div>
+        </div>
+    </div>
 
-          <div class="flex justify-end mb-4">
+    <!-- Tweede carousel -->
+    <div id="default-carousel-2" class="carousel m-1 md:w-1/2" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-48 overflow-hidden rounded-lg">
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/livingroom1.png') }}" alt="livingroom">
+            </div>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/bedroom1.png') }}" alt="bedroom">
+            </div>
+        </div>
+    </div>
+</div>  
+          <div class="flex justify-end space-x-4 mb-4">
             <button class="w-1/2 text-gray-800 py-2 rounded-lg font-bold">Reviews</button>
             <button class="w-1/2 bg-gray-200 text-gray-800 py-2 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold">Reserveren</button>
           </div>
@@ -103,8 +112,9 @@
 
           </p>
           <div class="flex items-center mb-4">
-            <span class="text-gray-800 font-bold mr-2">Prijs per nacht:</span>
-            <span class="text-gray-700">&#8364;55</span>
+            <span class="text-gray-800 font-bold mr-2">Prijs per nacht: <span class="text-gray-700">&#8364;55</span></span>
+          
+            
           </div>
           <div class="flex items-center mb-4">
             <span class="text-gray-800 font-bold mr-2">Datum:</span>
@@ -129,7 +139,6 @@
               </div>
             </div>
             </div>
-                    <div>
                         <span class="text-gray-800 font-bold">Omschrijving:</span>
                         <p class="text-gray-600 text-sm mt-2">Een vrijstaand modern huisje met 2 tweepersoonskamers, een woonkamer, keuken en badkamer.
                             Huisje is uitgerust met een zwembad en een rustgevende tuin. Wifi en wasmachine aanwezig. <br> </p>
@@ -139,6 +148,41 @@
             </div>
         </div>
     </div>
+  <style>
+  
+.flex {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.carousel {
+    flex: 1; 
+    max-width: calc(75% - 2rem); 
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column; 
+    }
+
+    .carousel {
+        max-width: 100%; 
+        margin-bottom: 1.5rem;
+    }
+}
+
+    </style>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+  flatpickr('#start-date', {
+    // Configuration options if needed
+  });
+  flatpickr('#end-date', {
+    // Configuration options if needed
+  });
+});
+
+</script> 
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -166,7 +210,7 @@
       });
     });
   </script>
-
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
