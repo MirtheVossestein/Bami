@@ -172,17 +172,40 @@
 }
 
     </style>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-   document.addEventListener('DOMContentLoaded', function () {
-  flatpickr('#start-date', {
-    // Configuration options if needed
-  });
-  flatpickr('#end-date', {
-    // Configuration options if needed
-  });
-});
+  document.addEventListener('DOMContentLoaded', function () {
+    const startDateInput = document.querySelector('#start-date');
+    const endDateInput = document.querySelector('#end-date');
 
-</script> 
+    const minNights = 5;
+
+    const endDatePicker = flatpickr(endDateInput, {
+      onChange: function (selectedDates) {
+        const startDate = startDatePicker.selectedDates[0];
+        const endDate = selectedDates[0];
+
+        if (startDate && endDate) {
+          const diffDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+          if (diffDays < minNights) {
+            alert(`Minimum booking is ${minNights} nights.`);
+            endDatePicker.clear();
+          }
+        }
+      }
+    });
+
+    const startDatePicker = flatpickr(startDateInput, {
+      onChange: function (selectedDates) {
+        const startDate = selectedDates[0];
+        if (startDate) {
+          const minEndDate = new Date(startDate.getTime() + minNights * 24 * 60 * 60 * 1000);
+          endDatePicker.set('minDate', minEndDate);
+        }
+      }
+    });
+  });
+</script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {

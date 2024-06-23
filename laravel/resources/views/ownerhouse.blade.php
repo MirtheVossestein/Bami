@@ -63,10 +63,15 @@
     </div>
 
 <div class="h-12 bg-green-700">
-
+            <!-- Toevoegen vakantiehuisje -->
     <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
     <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
-    <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
+    <h2 class="p-1 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
+    <div class="flex justify-center items-center text-green-700 text-center">
+        <h3 class="text-lg">Voor het toevoegen van een</h3>
+        <h4 class="text-lg underline ml-2">nieuw huisje</h4>
+    </div>
+
     <form action="/addhouse" method="POST" enctype="multipart/form-data" class="space-y-4">
     @csrf
             <div class="flex flex-wrap justify-center space-x-4">
@@ -123,22 +128,52 @@
 </dialog>
 </div>
 
+            <!-- Huis 1 informatie -->
 <div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
         <div class="flex justify-between items-start">
             <div class="flex flex-col">
                 <h1 class="text-sm text-white p-1">Soort huisje:</h1>
                 <h1 class="text-sm text-white p-1">Hoeveel persoons:</h1>
-                <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: bekijk hier</h1>
+                <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: <button id="openSecondDialogBtn" class="text-white underline focus:outline-none">bekijk hier</button></h1>
             </div>
             <div class="flex flex-col  mx-auto">
                 <h1 class="text-sm text-white p-1">Locatie huisje:</h1>
                 <h1 class="text-sm text-white p-1">Hoeveel slaapkamers:</h1>
                 <h1 class="text-sm text-white p-1">Prijs per nacht:</h1>
             </div>
-            <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
-        </div>
-    </div>
 
+
+        <button id="openEditDialogBtn" class="bg-white text-green-800 rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-40 ">Bewerken</button>
+
+            <!-- Bewerkingsdialog -->
+            <dialog id="editDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
+                <h2 class="p-2 text-2xl text-green-800 text-center">Bewerken informatie huidige huisje</h2>
+                <p>Voeg hier inhoud toe voor de bewerkingsdialog.</p>
+                <button id="closeEditDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Sluiten</button>
+            </dialog>
+
+
+        </div>
+    </div>    
+        <dialog id="secondDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-96">
+            <div class="flex flex-col items-center">
+                <h1 class="text-mg text-green-800"> Huidige omschrijving omgeving huisje: <h2 class="text-sm">(incomming tekst)</h4> </h1>
+            </div>
+            <br> <br>
+            <div class="flex flex-col items-center">
+            <h1 class="text-mg text-green-800"> Huidige omschrijving inhoud huisje: <h2 class="text-sm">(incomming tekst)</h4> </h1>
+            </div>
+            <br> <br> <br> <br> <br> <br> 
+            <div class="flex justify-center">
+            <button type="button" id="closeSecondDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Sluiten</button>
+        </div>
+    </dialog>
+</div>
+</div>
+
+
+
+        
 
     <script>
         const dialog = document.getElementById('simpleDialog');
@@ -152,14 +187,44 @@
         closeDialogBtn.addEventListener('click', function () {
             dialog.close();
         });
-    </script>
+    
 
-     <style>
+    
+        const secondDialog = document.getElementById('secondDialog');
+        const openSecondDialogBtn = document.getElementById('openSecondDialogBtn');
+        const closeSecondDialogBtn = document.getElementById('closeSecondDialogBtn');
+
+        openSecondDialogBtn.addEventListener('click', function () {
+            secondDialog.showModal();
+        });
+
+        closeSecondDialogBtn.addEventListener('click', function () {
+            secondDialog.close();
+        });
+    
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const editDialogBtn = document.getElementById('openEditDialogBtn'); 
+        const closeEditDialogBtn = document.getElementById('closeEditDialogBtn'); 
+
+        editDialogBtn.addEventListener('click', function () {
+            editDialog.showModal(); 
+        });
+
+        closeEditDialogBtn.addEventListener('click', function () {
+            editDialog.close(); 
+        });
+        });
+    </script>
+   
+
+    <style>
         #dropdownDefaultButton:hover + #dropdown,
         #dropdown:hover {
             display: block;
         }
     </style>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -179,6 +244,8 @@
             });
         });
     </script>
+
+
 
 
 
