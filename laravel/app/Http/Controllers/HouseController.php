@@ -24,8 +24,6 @@ class HouseController extends Controller
         $house->DescriptionHouse = $request['description_house'];
         $house->price = $request['price'];
     
-        $house->save();
-    
         if ($request->hasFile('image')) {
             $imageFile = $request->file('image');
             $imageBlob = file_get_contents($imageFile->getRealPath());
@@ -35,6 +33,8 @@ class HouseController extends Controller
             $image->image = $imageBlob;
             $image->save();
         }
+
+        $house->save();
     
         return view('ownerhouse');
     }
