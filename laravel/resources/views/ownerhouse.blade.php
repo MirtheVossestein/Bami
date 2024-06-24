@@ -129,13 +129,18 @@
     </div>
 
     @foreach ($houses as $house)
-        <div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
-            <div class="flex justify-between items-start">
-                <div class="flex flex-col">
+            <div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
+            <div class="flex">
+                <img class="w-36 h-24 mr-3 rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
+                <div class="flex justify-between items-start w-full">
+                    <div class="flex flex-col">
                     <h1 class="text-sm text-white p-1">Soort huisje: {{ $house->category }}</h1>
                     <h1 class="text-sm text-white p-1">Hoeveel persoons: {{ $house->personCapacity }}</h1>
-                    <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: bekijk hier</h1>
-                </div>
+                    <h1 class="text-sm text-white p-1">
+                    Omschrijving omgeving en inhoud huisje: 
+                    <button id="openSecondDialogBtn" class="text-white underline focus:outline-none">bekijk hier</button>
+                    </h1>                
+                    </div>
                 <div class="flex flex-col  mx-auto">
                     <h1 class="text-sm text-white p-1">Locatie huisje: {{ $house->city }}</h1>
                     <h1 class="text-sm text-white p-1">Hoeveel slaapkamers: {{ $house->rooms }}</h1>
