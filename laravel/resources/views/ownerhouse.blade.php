@@ -125,114 +125,27 @@
                 <button id="closeDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
             </div>
         </form>
-</dialog>
-</div>
-
-            <!-- Huis 1 informatie -->
-<div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
-    <div class="flex">
-    <img class="w-36 h-24 mr-3 rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
-        <div class="flex justify-between items-start w-full">
-            <div class="flex flex-col">
-                <h1 class="text-sm text-white p-1">Soort huisje:</h1>
-                <h1 class="text-sm text-white p-1">Hoeveel persoons:</h1>
-                <h1 class="text-sm text-white p-1">
-                    Omschrijving omgeving en inhoud huisje: 
-                    <button id="openSecondDialogBtn" class="text-white underline focus:outline-none">bekijk hier</button>
-                </h1>
-            </div>
-            <div class="flex flex-col mx-auto">
-                <h1 class="text-sm text-white p-1">Locatie huisje:</h1>
-                <h1 class="text-sm text-white p-1">Hoeveel slaapkamers:</h1>
-                <h1 class="text-sm text-white p-1">Prijs per nacht:</h1>
-            </div>
-            <button id="openEditDialogBtn" class="bg-white text-green-800 rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-40 ">Bewerken</button>
-        </div>
-    </div>
-</div>
-
-
-
-            <!-- Bewerkingsdialog -->
-            <dialog id="editDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
-                <h2 class="p-2 text-2xl text-green-800 text-center">Bewerken informatie huidige huisje</h2>
-                <form action="/addhouse" method="POST" enctype="multipart/form-data" class="space-y-4">
-            @csrf
-            <div class="flex flex-wrap justify-center space-x-4">
-                <div class="flex flex-col items-center">
-                    <label for="house_name" class="mb-1">Soort huisje:</label>
-                    <input type="text" id="house_name" name="house_name" required class="p-2 border border-gray-300 rounded h-7 w-64">
-                </div>
-                <div class="flex flex-col items-center">
-                    <label for="location_house" class="mb-1">Plaatsnaam huisje:</label>
-                    <input type="text" id="location_house" name="house_location" required class="p-2 border border-gray-300 rounded h-7 w-64">
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-center space-x-4">
-                <div class="flex flex-col items-center">
-                    <label for="amount_people" class="mb-1">Hoeveel persoons:</label>
-                    <input type="number" id="amount_people" name="amount_people" required class="p-2 border border-gray-300 rounded h-7 w-64">
-                </div>
-                <div class="flex flex-col items-center">
-                    <label for="amount_bedrooms" class="mb-1">Hoeveel slaapkamers:</label>
-                    <input type="number" id="amount_bedrooms" name="amount_bedrooms" required class="p-2 border border-gray-300 rounded h-7 w-64">
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-center space-x-4">
-                <div class="flex flex-col items-center">
-                    <label for="zipcode" class="mb-1">Postcode huisje:</label>
-                    <input type="text" id="zipcode" name="zipcode" required class="p-2 border border-gray-300 rounded h-7 w-64">
-                </div>
-                <div class="flex flex-col items-center">
-                    <label for="adress" class="mb-1">Adres huisje:</label>
-                    <input type="text" id="adress" name="adress" required class="p-2 border border-gray-300 rounded h-7 w-64">
-                </div>
-            </div>
-            <div class="flex flex-col items-center">
-                <label for="description_location" class="mb-1">Omschrijving omgeving huisje:</label>
-                <textarea id="description_location" name="description_location" required class="p-2 border border-gray-300 rounded" rows="4" cols="50"></textarea>
-            </div>
-            <div class="flex flex-col items-center">
-                <label for="description_house" class="mb-1">Omschrijving wat huisje bevat:</label>
-                <textarea id="description_house" name="description_house" required class="p-2 border border-gray-300 rounded" rows="4" cols="50"></textarea>
-            </div>
-            <div class="flex flex-col items-center">
-                <label for="price" class="mb-1">Prijs per nacht:</label>
-                <input type="number" id="price" name="price" required class="p-2 border border-gray-300 rounded h-7 w-64">
-            </div>
-            <div class="flex flex-col items-center">
-                <label for="image" class="mb-1">Voeg (max 20) afbeeldingen van het huisje toe:</label>
-                <input type="file" id="image" name="image" enctype="multipart/form-data" required class="p-2 border border-gray-300 rounded w-64">
-            </div>
-            <div class="flex justify-center">
-                <button type="submit" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
-                <button id="closeEditDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
-            </div>
-        </form>
-</dialog>
-
-
-        </div>
-    </div>    
-        <dialog id="secondDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-96">
-            <div class="flex flex-col items-center">
-                <h1 class="text-mg text-green-800"> Huidige omschrijving omgeving huisje: <h2 class="text-sm">(incomming tekst)</h4> </h1>
-            </div>
-            <br> <br>
-            <div class="flex flex-col items-center">
-            <h1 class="text-mg text-green-800"> Huidige omschrijving inhoud huisje: <h2 class="text-sm">(incomming tekst)</h4> </h1>
-            </div>
-            <br> <br> <br> <br> <br> <br> 
-            <div class="flex justify-center">
-            <button type="button" id="closeSecondDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Sluiten</button>
-        </div>
     </dialog>
-</div>
-</div>
+    </div>
 
+    @foreach ($houses as $house)
+        <div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
+            <div class="flex justify-between items-start">
+                <div class="flex flex-col">
+                    <h1 class="text-sm text-white p-1">Soort huisje: {{ $house->category }}</h1>
+                    <h1 class="text-sm text-white p-1">Hoeveel persoons: {{ $house->personCapacity }}</h1>
+                    <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: bekijk hier</h1>
+                </div>
+                <div class="flex flex-col  mx-auto">
+                    <h1 class="text-sm text-white p-1">Locatie huisje: {{ $house->city }}</h1>
+                    <h1 class="text-sm text-white p-1">Hoeveel slaapkamers: {{ $house->rooms }}</h1>
+                    <h1 class="text-sm text-white p-1">Prijs per nacht: {{ $house->price }}</h1>
+                </div> 
+                <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
+            </div>
+        </div>
+    @endforeach
 
-
-        
 
     <script>
         const dialog = document.getElementById('simpleDialog');
