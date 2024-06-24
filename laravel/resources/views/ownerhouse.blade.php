@@ -128,6 +128,7 @@
     </dialog>
     </div>
 
+            <!-- info vakantiehuisje -->
     @foreach ($houses as $house)
             <div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
             <div class="flex">
