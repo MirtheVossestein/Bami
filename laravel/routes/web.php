@@ -32,3 +32,8 @@ Route::get('/house1', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::get('/reservepage', function () {
+    return view('reservepage');
+});
+
