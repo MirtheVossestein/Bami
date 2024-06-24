@@ -34,3 +34,8 @@ Route::get('/reservepage', function () {
     return view('reservepage');
 });
 
+Route::get('/reservecompleted', function () {
+    return view('reservecompleted');
+});
+
+
