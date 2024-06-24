@@ -63,10 +63,15 @@
     </div>
 
 <div class="h-12 bg-green-700">
-
+            <!-- Toevoegen vakantiehuisje -->
     <button id="openDialogBtn" class="bg-green-800 text-white rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-48 mt-4 ml-4">Voeg vakantiehuis toe</button>
     <dialog id="simpleDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
-    <h2 class="p-2 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
+    <h2 class="p-1 text-2xl text-green-800 text-center">Vul de benodigde informatie in:</h2>
+    <div class="flex justify-center items-center text-green-700 text-center">
+        <h3 class="text-lg">Voor het toevoegen van een</h3>
+        <h4 class="text-lg underline ml-2">nieuw huisje</h4>
+    </div>
+
     <form action="/addhouse" method="POST" enctype="multipart/form-data" class="space-y-4">
     @csrf
             <div class="flex flex-wrap justify-center space-x-4">
@@ -154,14 +159,44 @@
         closeDialogBtn.addEventListener('click', function () {
             dialog.close();
         });
-    </script>
+    
 
-     <style>
+    
+        const secondDialog = document.getElementById('secondDialog');
+        const openSecondDialogBtn = document.getElementById('openSecondDialogBtn');
+        const closeSecondDialogBtn = document.getElementById('closeSecondDialogBtn');
+
+        openSecondDialogBtn.addEventListener('click', function () {
+            secondDialog.showModal();
+        });
+
+        closeSecondDialogBtn.addEventListener('click', function () {
+            secondDialog.close();
+        });
+    
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const editDialogBtn = document.getElementById('openEditDialogBtn'); 
+        const closeEditDialogBtn = document.getElementById('closeEditDialogBtn'); 
+
+        editDialogBtn.addEventListener('click', function () {
+            editDialog.showModal(); 
+        });
+
+        closeEditDialogBtn.addEventListener('click', function () {
+            editDialog.close(); 
+        });
+        });
+    </script>
+   
+
+    <style>
         #dropdownDefaultButton:hover + #dropdown,
         #dropdown:hover {
             display: block;
         }
     </style>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -181,6 +216,8 @@
             });
         });
     </script>
+
+
 
 
 
