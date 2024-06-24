@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservations</title>
+  <title>Reserveerpagina</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" type="text/css" href="font-ubuntu.css">
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -64,6 +64,14 @@
       </div>
     </div>
   </div>
+
+  <div class="max-w-7xl mx-auto mt-8 px-4">
+    <div class="bg-white shadow-md rounded-lg p-8">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/3 h-1/3">
+          <div class="h-72 md:h-96 bg-gray-300 rounded-lg mb-4">
+            <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
+          </div>
 
  
 
