@@ -120,24 +120,26 @@
                 <button id="closeDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
             </div>
         </form>
-</dialog>
-</div>
-
-<div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
-        <div class="flex justify-between items-start">
-            <div class="flex flex-col">
-                <h1 class="text-sm text-white p-1">Soort huisje:</h1>
-                <h1 class="text-sm text-white p-1">Hoeveel persoons:</h1>
-                <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: bekijk hier</h1>
-            </div>
-            <div class="flex flex-col  mx-auto">
-                <h1 class="text-sm text-white p-1">Locatie huisje:</h1>
-                <h1 class="text-sm text-white p-1">Hoeveel slaapkamers:</h1>
-                <h1 class="text-sm text-white p-1">Prijs per nacht:</h1>
-            </div>
-            <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
-        </div>
+    </dialog>
     </div>
+
+    @foreach ($houses as $house)
+        <div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
+            <div class="flex justify-between items-start">
+                <div class="flex flex-col">
+                    <h1 class="text-sm text-white p-1">Soort huisje: {{ $house->category }}</h1>
+                    <h1 class="text-sm text-white p-1">Hoeveel persoons: {{ $house->personCapacity }}</h1>
+                    <h1 class="text-sm text-white p-1">Omschrijving omgeving en inhoud huisje: bekijk hier</h1>
+                </div>
+                <div class="flex flex-col  mx-auto">
+                    <h1 class="text-sm text-white p-1">Locatie huisje: {{ $house->city }}</h1>
+                    <h1 class="text-sm text-white p-1">Hoeveel slaapkamers: {{ $house->rooms }}</h1>
+                    <h1 class="text-sm text-white p-1">Prijs per nacht: {{ $house->price }}</h1>
+                </div> 
+                <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
+            </div>
+        </div>
+    @endforeach
 
 
     <script>
