@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HouseController;
+use App\Models\House;
 
 Route::post('/adduser', [UserController::class, 'register']);
 Route::post('/loginuser', [UserController::class, 'login']);
@@ -19,7 +20,8 @@ Route::get('/login', function () {
 });
 
 Route::get('/houses', function () {
-    return view('houses');
+    $houses = House::with('image')->get(); // Eager load the image relationship
+    return view('houses', compact('houses'));
 });
 
 Route::get('/house1', function () {
