@@ -102,8 +102,8 @@
 </div>  
           <div class="flex justify-end space-x-4 mb-4">
             <button class="w-1/2 text-gray-800 py-2 rounded-lg font-bold">Reviews</button>
-            <button class="w-1/2 bg-gray-200 text-gray-800 py-2 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold">Reserveren</button>
-          </div>
+            <a href="reservepage" class="w-1/2 bg-gray-200 text-gray-800 py-2 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold inline-block text-center">Reserveren</a>
+            </div>
 
         </div>
         <div class="md:w-1/2 md:pl-8">

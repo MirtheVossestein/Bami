@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reserveerpagina</title>
+  <title>Voltooid</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" type="text/css" href="font-ubuntu.css">
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -74,43 +74,13 @@
                 </div>
             </div>
             <div class="md:w-1/2 md:pl-8 flex flex-col space-y-4">
-                <div>
-                    <h1 class="text-base text-lg font-bold">Vul uw informatie in om de reservering compleet te maken.</h1>
-                </div>
-                <form action="reservecompleted" method="POST" class="space-y-4">
-                    @csrf
-                    <div class="flex flex-col">
-                        <label for="name" class="font-bold mb-1">Naam en achternaam:</label>
-                        <input type="text" id="name" name="first_name" required class="p-2 border border-gray-300 rounded">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="address" class="font-bold mb-1">Adres en huisnummer:</label>
-                        <input type="text" id="address" name="customer_address" required class="p-2 border border-gray-300 rounded">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="zipcode_location" class="font-bold mb-1">Postcode en plaatsnaam:</label>
-                        <input type="text" id="zipcode_location" name="customer_zipcodelocation" required class="p-2 border border-gray-300 rounded">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="email" class="font-bold mb-1">E-mail:</label>
-                        <input type="email" id="email" name="customer_email" required class="p-2 border border-gray-300 rounded">
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="phone" class="font-bold mb-1">Telefoonnummer:</label>
-                        <input type="tel" id="phone" name="phone" required class="p-2 border border-gray-300 rounded">
-                    </div>
-                    <div>
-                        <h1 class="text-base font-bold">Datum reservering: (insert data reservering BAS)</h1>
-                    </div>
-                    <div class="flex flex-col">
-                        <a href="reservecompleted" class="p-3 mt-4 bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 hover:scale-105 hover:opacity-85 transition-all block text-center w-full">Reserveer</a>
-                    </div>
-                </form>
+            <div>
+                  <h1 class="text-base text-xl font-bold">Reservering compleet!</h1>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-
+          </div>
+      </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
