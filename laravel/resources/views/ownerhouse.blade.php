@@ -118,7 +118,7 @@
             </div>
             <div class="flex flex-col items-center">
                 <label for="image" class="mb-1">Voeg (max 20) afbeeldingen van het huisje toe:</label>
-                <input type="file" id="image" name="image" enctype="multipart/form-data" required class="p-2 border border-gray-300 rounded w-64">
+                <input type="file" id="image" name="images[]" multiple required class="p-2 border border-gray-300 rounded w-64">
             </div>
             <div class="flex justify-center">
                 <button type="submit" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
@@ -142,11 +142,11 @@
                     <button id="openSecondDialogBtn" class="text-white underline focus:outline-none">bekijk hier</button>
                     </h1>                
                     </div>
-                <div class="flex flex-col  mx-auto">
-                    <h1 class="text-sm text-white p-1">Locatie huisje: {{ $house->city }}</h1>
-                    <h1 class="text-sm text-white p-1">Hoeveel slaapkamers: {{ $house->rooms }}</h1>
-                    <h1 class="text-sm text-white p-1">Prijs per nacht: {{ $house->price }}</h1>
-                </div> 
+                    <div class="flex flex-col  mx-auto">
+                        <h1 class="text-sm text-white p-1">Locatie huisje: {{ $house->city }}</h1>
+                        <h1 class="text-sm text-white p-1">Hoeveel slaapkamers: {{ $house->rooms }}</h1>
+                        <h1 class="text-sm text-white p-1">Prijs per nacht: {{ $house->price }}</h1>
+                    </div> 
                 <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
             </div>
         </div>

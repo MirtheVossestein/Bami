@@ -6,6 +6,7 @@ use App\Models\House;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
@@ -15,7 +16,7 @@ class HouseController extends Controller
         $house->ownerId = Session::get('loggedInUserId');
         $house->category = $request['house_name'];
         $house->city = $request['house_location'];
-        $house->address = $request['adress'];
+        $house->addresss = $request['adress'];
         $house->zipcode = $request['zipcode'];
         $house->personCapacity = $request['amount_people'];
         $house->rooms = $request['amount_bedrooms'];
@@ -27,11 +28,10 @@ class HouseController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $imageFile) {
-                $imageBlob = file_get_contents($imageFile->getRealPath());
-        
+                $path = $imageFile->store('images', 'public');
                 $image = new Image();
-                $image->houseId = $house->id; // Use the house ID after the house is saved
-                $image->image = base64_encode($imageBlob); // Convert binary data to base64
+                $image->house_id = $house->id;
+                $image->image = $path;
                 $image->save();
             }
         }
@@ -45,19 +45,13 @@ class HouseController extends Controller
     {
         $houses = House::all(); // Retrieve all houses
 
-        foreach ($houses as $house) {
-            $images = Image::where('houseId', $house->id)->get(); // Fetch images for each house
-
-            $decodedImages = [];
-            foreach ($images as $image) {
-                // Decode each image's BLOB data
-                $decodedImages[] = base64_decode($image->image);
-            }
-
-            // Attach the decoded images to the house object
-            $house->decodedImages = $decodedImages;
-        }
-
         return view('ownerhouse', compact('houses')); // Pass houses (with images) to the view
-        }
+    }
+
+    public function displayHouses(){
+        $houses = House::all();
+        
+        // dd($houses[0]->images);
+        return view('houses', compact('houses'));
+    }
 }
