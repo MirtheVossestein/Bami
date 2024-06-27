@@ -66,31 +66,35 @@
 
    <!-- House Card 1 -->
   @foreach ($houses as $house)
-      <div class="relative m-4 flex w-full max-w-xs flex-col hover:scale-105 transition-all overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-        <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-          <img class="object-cover" src="{{ asset('images/' . $house->location . '/' . $house->image) }}" alt="{{ $house->location }}"/>
-          <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">Nieuw!</span>
-        </a>
+    <div class="relative m-4 flex w-full max-w-xs flex-col hover:scale-105 transition-all overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      @if (!empty($house->decodedImages))
+        @foreach ($house->decodedImages as $image)
+          <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
+            <img class="object-cover" src="data:image/jpeg;base64,{{ base64_encode($image) }}" alt="{{ $house->location }}"/>
+            <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">Nieuw!</span>
+          </a>
+        @endforeach
+      @endif
   
-        <div class="mt-4 px-5 pb-5">
-          <a href="#">
-            <h5 class="text-xl tracking-tight font-bold text-slate-900">{{ $house->name }}</h5>
-          </a>
-          <div class="mt-2 mb-5 flex items-center justify-between">
-            <p>
-            <!-- Icons can be conditionally displayed based on house features -->
-            <span class="material-icons text-black text-lg">wifi</span> <!-- Example Icon -->
-            <span class="text-2 font-bold text-slate-900">{{ $house->personCapacity }} Personen - <span class="italic text-slade-800">{{ $house->rooms }} Slaapkamers</span></span>
-            </p>
-            <div class="flex items-center">
-              <!-- Rating SVGs or other dynamic content based on $house properties -->
-            </div>
+      <div class="mt-4 px-5 pb-5">
+        <a href="#">
+          <h5 class="text-xl tracking-tight font-bold text-slate-900">{{ $house->name }}</h5>
+        </a>
+        <div class="mt-2 mb-5 flex items-center justify-between">
+          <p>
+          <!-- Icons can be conditionally displayed based on house features -->
+          <span class="material-icons text-black text-lg">wifi</span> <!-- Example Icon -->
+          <span class="text-2 font-bold text-slate-900">{{ $house->personCapacity }} Personen - <span class="italic text-slade-800">{{ $house->rooms }} Slaapkamers</span></span>
+          </p>
+          <div class="flex items-center">
+            <!-- Rating SVGs or other dynamic content based on $house properties -->
           </div>
-          <a href="{{ url('house', $house->id) }}" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-            Bekijk huisje
-          </a>
         </div>
+        <a href="{{ url('house', $house->id) }}" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+          Bekijk huisje
+        </a>
       </div>
+    </div>
   @endforeach
 
     <!-- House Card 2 -->
