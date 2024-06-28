@@ -81,12 +81,14 @@
       </form>
     </div>
   </div>
-
+ <!---
   <footer class="footer bg-green-800 text-center text-white py-3 mt-auto">
     <div class="container mx-auto">
       <p class="text-sm">&copy; 2024 Copyright: BaMihuisjes.com</p>
     </div>
   </footer>
+
+-->
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {

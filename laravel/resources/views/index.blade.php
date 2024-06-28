@@ -98,12 +98,13 @@
         </div>
     </div>
 
+    <!---
     <footer class="footer bg-green-800 text-center text-white py-3">
         <div class="container mx-auto">
             <p class="text-sm">&copy; 2024 Copyright: BaMihuisjes.com</p>
         </div>
     </footer>
-
+    ----->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const dropdownButton = document.getElementById('dropdownDefaultButton');
