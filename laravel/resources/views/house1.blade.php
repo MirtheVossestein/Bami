@@ -44,8 +44,7 @@
                 @if (session('isLoggedIn'))
                     <div id="dropdown"
                         class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownDefaultButton">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li>
                                 <a href="profile"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profiel</a>
@@ -70,8 +69,7 @@
                 @else
                     <div id="dropdown"
                         class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownDefaultButton">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li>
                                 <a href="/login"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log
@@ -178,7 +176,44 @@
                     <p class="text-gray-800 mt-2"> Dit huisje is alleen te huren voor minimaal 5 dagen. </p>
                 </div>
             </div>
+
+
+            <div class="bg-gray-200 w-4/4 mx-3 p-2 h-auto flex rounded-lg">
+                <div class="flex flex-col">
+
+                    <div class="flex w-full">
+                        <h1 class="text-lg px-2 py-1 text-black font-bold italic">Vertel ons uw mening</h1>
+                    </div>
+
+                    <div class="flex p-3">
+                        <div class="flex flex-col text-black mr-16">
+                            <label for="rating" class="font-bold italic mb-2">Beoordeling:</label>
+                            <select id="rating" name="rating"
+                                class="border-gray-300 rounded-md shadow-sm w-full mt-2  py-2 px-3 focus:outline-none focus:ring focus:ring-blue-200"
+                                required>
+                                <option value="">Geef sterren</option>
+                                <option value="1">1 ster</option>
+                                <option value="2">2 sterren</option>
+                                <option value="3">3 sterren</option>
+                                <option value="4">4 sterren</option>
+                                <option value="5">5 sterren</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col text-black -ml-2">
+                            <label for="description" class="font-bold mb-1 italic">Beschrijving</label>
+                            <div class="flex">
+                                <textarea id="description" name="description" required
+                                    class="p-2 border border-gray-300 rounded" rows="3" cols="90"></textarea>
+                                    <input type="submit"
+                                class="ml-16 mb-14 bg-white text-gray-800 py-2 px-4 mt-10 mr-4 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold inline-block "></input>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
+    </div>
     </div>
     </div>
     <style>
@@ -205,14 +240,14 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const startDateInput = document.querySelector('#start-date');
             const endDateInput = document.querySelector('#end-date');
 
             const minNights = 5;
 
             const endDatePicker = flatpickr(endDateInput, {
-                onChange: function(selectedDates) {
+                onChange: function (selectedDates) {
                     const startDate = startDatePicker.selectedDates[0];
                     const endDate = selectedDates[0];
 
@@ -227,7 +262,7 @@
             });
 
             const startDatePicker = flatpickr(startDateInput, {
-                onChange: function(selectedDates) {
+                onChange: function (selectedDates) {
                     const startDate = selectedDates[0];
                     if (startDate) {
                         const minEndDate = new Date(startDate.getTime() + minNights * 24 * 60 * 60 *
@@ -240,15 +275,15 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const dropdownButton = document.getElementById('dropdownDefaultButton');
             const dropdownMenu = document.getElementById('dropdown');
 
-            dropdownButton.addEventListener('mouseenter', function() {
+            dropdownButton.addEventListener('mouseenter', function () {
                 dropdownMenu.classList.remove('hidden');
             });
 
-            dropdownButton.addEventListener('mouseleave', function() {
+            dropdownButton.addEventListener('mouseleave', function () {
                 setTimeout(() => {
                     if (!dropdownMenu.matches(':hover')) {
                         dropdownMenu.classList.add('hidden');
@@ -256,11 +291,11 @@
                 }, 300);
             });
 
-            dropdownMenu.addEventListener('mouseleave', function() {
+            dropdownMenu.addEventListener('mouseleave', function () {
                 dropdownMenu.classList.add('hidden');
             });
 
-            dropdownMenu.addEventListener('mouseenter', function() {
+            dropdownMenu.addEventListener('mouseenter', function () {
                 dropdownMenu.classList.remove('hidden');
             });
         });

@@ -163,7 +163,7 @@
                         </div>
                         <div class="flex flex-col">
                             <input type="submit"
-                                class="p-3 mt-4 bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 hover:scale-105 hover:opacity-85 transition-all block text-center w-full">Reserveer</input>
+                                class="p-3 mt-4 bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 hover:scale-105 hover:opacity-85 transition-all block text-center w-full"></input>
                         </div>
                         <input type="hidden" name="houseId" value="{{ $house->id }}">
                     </form>

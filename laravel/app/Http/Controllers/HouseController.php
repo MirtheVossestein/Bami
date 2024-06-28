@@ -16,7 +16,7 @@ class HouseController extends Controller
         $house->ownerId = Session::get('loggedInUserId');
         $house->category = $request['house_name'];
         $house->city = $request['house_location'];
-        $house->addresss = $request['adress'];
+        $house->address = $request['adress'];
         $house->zipcode = $request['zipcode'];
         $house->personCapacity = $request['amount_people'];
         $house->rooms = $request['amount_bedrooms'];
