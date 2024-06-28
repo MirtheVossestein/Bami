@@ -179,41 +179,60 @@
             </div>
 
 
-            <div class="bg-gray-200 w-4/4 mx-3 p-2 h-auto flex rounded-lg">
+        <div class="bg-gray-200 w-4/4 mx-3 p-2 h-auto flex rounded-lg mb-4">
+            <div class="flex flex-col">
+
+                <div class="flex w-full">
+                    <h1 class="text-xl px-2 py-1 text-black font-bold italic">Vertel ons uw mening</h1>
+                </div>
+
+                <div class="flex p-3">
+                    <div class="flex flex-col text-black mr-16">
+                        <label for="rating" class="font-bold italic mb-2">Beoordeling:</label>
+                        <select id="rating" name="rating"
+                            class="border-gray-300 rounded-md shadow-sm w-full mt-2  py-2 px-3 focus:outline-none focus:ring focus:ring-blue-200"
+                            required>
+                            <option value="">Geef sterren</option>
+                            <option value="1">1 ster</option>
+                            <option value="2">2 sterren</option>
+                            <option value="3">3 sterren</option>
+                            <option value="4">4 sterren</option>
+                            <option value="5">5 sterren</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col text-black -ml-2">
+                        <label for="description" class="font-bold mb-1 italic">Beschrijving</label>
+                        <div class="flex">
+                            <textarea id="description" name="description" required
+                                class="p-2 border border-gray-300 rounded" rows="3" cols="90"></textarea>
+                            <input type="submit"
+                                class="ml-16 mb-14 bg-white text-gray-800 py-2 px-4 mt-10 mr-4 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold inline-block ">
+                        </input>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bg-gray-200 w-4/4 mx-3 p-2 h-auto flex rounded-lg">
+    <div class="flex flex-col">
+        <div class="flex w-full">
+            <h1 class="text-xl px-2 py-1 text-black font-bold italic">Wat eerdere klanten vonden</h1>
+        </div>
+        <div class="flex p-8">
+            <div class="flex flex-row w-full">
+                <div class="font-bold italic text-black mr-64">Sterren:</div> 
                 <div class="flex flex-col">
-
-                    <div class="flex w-full">
-                        <h1 class="text-lg px-2 py-1 text-black font-bold italic">Vertel ons uw mening</h1>
-                    </div>
-
-                    <div class="flex p-3">
-                        <div class="flex flex-col text-black mr-16">
-                            <label for="rating" class="font-bold italic mb-2">Beoordeling:</label>
-                            <select id="rating" name="rating"
-                                class="border-gray-300 rounded-md shadow-sm w-full mt-2  py-2 px-3 focus:outline-none focus:ring focus:ring-blue-200"
-                                required>
-                                <option value="">Geef sterren</option>
-                                <option value="1">1 ster</option>
-                                <option value="2">2 sterren</option>
-                                <option value="3">3 sterren</option>
-                                <option value="4">4 sterren</option>
-                                <option value="5">5 sterren</option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col text-black -ml-2">
-                            <label for="description" class="font-bold mb-1 italic">Beschrijving</label>
-                            <div class="flex">
-                                <textarea id="description" name="description" required
-                                    class="p-2 border border-gray-300 rounded" rows="3" cols="90"></textarea>
-                                    <input type="submit"
-                                class="ml-16 mb-14 bg-white text-gray-800 py-2 px-4 mt-10 mr-4 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold inline-block "></input>
-                            </div>
-                        </div>
-                    </div>
-
+                    <div class="font-bold italic text-black">Naam:</div>
+                    <div class="font-bold italic text-black mt-4">Review:</div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
     </div>
     </div>
     </div>
