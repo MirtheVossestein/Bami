@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\ReservationController;
 use App\Models\House;
 use App\Models\Image;
 
+Route::post('/completereservation', [ReservationController::class, 'addReservation'])->name('completereservation');
 Route::post('/adduser', [UserController::class, 'register']);
 Route::post('/loginuser', [UserController::class, 'login']);
 Route::get('/logout', [UserController::class, 'logout']);
@@ -19,7 +21,7 @@ Route::get('/house/{house}', function ($house) {
 
     // If no house is found, you might want to handle this case, e.g., show an error or redirect
     if (!$houseDetails) {
-        return redirect('/houses'); // Adjust as necessary
+        return redirect('/'); // Adjust as necessary
     }
 
     // Pass the entire house details array to the view
@@ -35,7 +37,8 @@ Route::get('/reserve/{house}', function ($house) {
 
     // If no house is found, you might want to handle this case, e.g., show an error or redirect
     if (!$houseDetails) {
-        return redirect('/houses'); // Adjust as necessary
+        dd();
+        return redirect('/'); // Adjust as necessary
     }
 
     // Pass the entire house details array to the view
@@ -60,9 +63,6 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/reservepage', function () {
-    return view('reservepage');
-});
 
 Route::get('/reservecompleted', function () {
     return view('reservecompleted');

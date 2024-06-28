@@ -98,7 +98,7 @@
                         <h1 class="text-base text-lg font-bold">Vul uw informatie in om de reservering compleet te
                             maken.</h1>
                     </div>
-                    <form action="reserve" method="POST" class="space-y-4">
+                    <form action="{{ route('completereservation') }}" method="POST" class="space-y-4">
                         @csrf
                         <div class="flex items-center mb-4">
                           <span class="text-gray-800 font-bold mr-2">Datum:</span>
@@ -112,7 +112,7 @@
                                               d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                       </svg>
                                   </div>
-                                  <input name="start" id="start-date" type="text"
+                                  <input name="start" id="start_date" type="text"
                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
                                       placeholder="Selecteer een datum">
                               </div>
@@ -125,7 +125,7 @@
                                               d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                       </svg>
                                   </div>
-                                  <input name="end" id="end-date" type="text"
+                                  <input name="end" id="end_date" type="text"
                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
                                       placeholder="Selecteer een datum">
                               </div>
@@ -161,11 +161,16 @@
                             <h1 class="text-base font-bold">Datum reservering: (insert data reservering BAS)</h1>
                         </div>
                         <div class="flex flex-col">
-                            <a href="reservecompleted"
-                                class="p-3 mt-4 bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 hover:scale-105 hover:opacity-85 transition-all block text-center w-full">Reserveer</a>
+                            <input type="submit"
+                                class="p-3 mt-4 bg-green-800 text-white rounded cursor-pointer hover:bg-green-700 hover:scale-105 hover:opacity-85 transition-all block text-center w-full">Reserveer</input>
                         </div>
                         <input type="hidden" name="houseId" value="{{ $house->id }}">
                     </form>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
