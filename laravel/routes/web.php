@@ -8,6 +8,7 @@ use App\Models\House;
 use App\Models\Image;
 
 Route::post('/completereservation', [ReservationController::class, 'addReservation'])->name('completereservation');
+Route::post('/', [ReservationController::class, 'addReservation'])->name('completereservation');
 Route::post('/adduser', [UserController::class, 'register']);
 Route::post('/loginuser', [UserController::class, 'login']);
 Route::get('/logout', [UserController::class, 'logout']);

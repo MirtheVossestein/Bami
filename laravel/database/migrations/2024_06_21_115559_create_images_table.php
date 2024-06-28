@@ -13,9 +13,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('house_id');
             $table->timestamps();
-        });
-
-        DB::statement("ALTER TABLE images ADD image MEDIUMBLOB");
+            $table->string('image');
+        }); 
     }
 
     public function down(): void
