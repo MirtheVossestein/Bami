@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voltooid</title>
+  <title>Mijn reserveringen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" type="text/css" href="font-ubuntu.css">
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1-16x16.png">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
@@ -65,27 +65,38 @@
       </div>
     </div>
   </div>
-
-  <div class="h-12 bg-green-700"></div>
-  
-  <div class="max-w-7xl mx-auto mt-8 px-4">
-    <div class="bg-white shadow-md rounded-lg p-8">
-        <div class="flex flex-col md:flex-row">
-            <div class="md:w-1/2">
-                <div class="h-80 md:h-104 bg-gray-300 rounded-lg mb-4">
-                    <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
-                </div>
-            </div>
-            <div class="md:w-1/2 md:pl-8 flex flex-col space-y-4">
-            <div>
-                  <h1 class="text-base text-xl text-green-800 font-bold">Uw reservering compleet!</h1>
-              </div>
-            </div>
-          </div>
-      </div>
+  <div class="h-12 bg-green-700">
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <h1 class="ubuntu-regular-italic font-bold text-center text-green-800 text-4xl">Mijn reserveringen </h1>
+
+
+      <!-- Huis 1 informatie -->
+<div class="bg-green-700 w-3/4 m-3 h-40 mx-auto flex rounded-lg flex-col justify-between p-2">
+    <div class="flex">
+    <img class="w-36 h-24 mr-3 rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
+        <div class="flex justify-between items-start w-full">
+            <div class="flex flex-col">
+                <h1 class="text-sm text-white p-1">Naam huisje:</h1>
+                <h1 class="text-sm text-white p-1">Hoeveel persoons:</h1>
+                <h1 class="text-sm text-white p-1">
+                    Omschrijving omgeving en inhoud huisje: 
+                    <button id="openSecondDialogBtn" class="text-white underline focus:outline-none">bekijk hier</button>
+                </h1>
+            </div>
+            <div class="flex flex-col mx-auto">
+                <h1 class="text-sm text-white p-1">Hoeveel slaapkamers:</h1>
+                <h1 class="text-sm text-white p-1">Prijs per nacht:</h1>
+            </div>
+        </div>
+    </dialog>
+    </div>
+</div>
+  
+ 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const dropdownButton = document.getElementById('dropdownDefaultButton');
@@ -111,7 +122,20 @@
         dropdownMenu.classList.remove('hidden');
       });
     });
+
+
+    const secondDialog = document.getElementById('secondDialog');
+        const openSecondDialogBtn = document.getElementById('openSecondDialogBtn');
+        const closeSecondDialogBtn = document.getElementById('closeSecondDialogBtn');
+        openSecondDialogBtn.addEventListener('click', function () {
+            secondDialog.showModal();
+        });
+        closeSecondDialogBtn.addEventListener('click', function () {
+            secondDialog.close();
+        });
+    
   </script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 

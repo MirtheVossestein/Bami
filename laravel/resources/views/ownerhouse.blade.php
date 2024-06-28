@@ -10,19 +10,20 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1-16x16.png">   
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="h-screen flex flex-col ubuntu-medium">
-    <div class="relative h-52 bg-green-800 flex items-center justify-center ">
+    <div class="relative h-28 bg-green-800 flex items-center justify-center ">
         <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl">
             BaMihuisjes.com
         </a>
         <a href="houses" class="absolute z-20 top-4 right-80 py-1 px-16 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
             <h1 class="text-sm">Vakantiehuizen</h1>
         </a>
-        <a href="contact" class="absolute z-20 top-4 right-32 py-1 px-16 right-2 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
+        <a href="contactpage" class="absolute z-20 top-4 right-32 py-1 px-16 right-2 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
             <h1 class="text-sm">Contact</h1>
         </a>
 
@@ -43,7 +44,7 @@
                             <a href="ownerhouse" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn vakantiehuizen</a>
                         </li>
                         <li>
-                            <a href="reservations" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn reserveringen</a>
+                            <a href="myreservations" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn reserveringen</a>
                         </li>
                         <li>
                             <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log uit</a>
@@ -147,10 +148,93 @@
                     <h1 class="text-sm text-white p-1">Hoeveel slaapkamers: {{ $house->rooms }}</h1>
                     <h1 class="text-sm text-white p-1">Prijs per nacht: {{ $house->price }}</h1>
                 </div> 
-                <button class="bottom-2 right-2 bg-white text-green-800 px-4 py-1 shadow-lg  rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">Bewerken</button>
+                <div class="flex flex-col space-y-2">
+                    <button id="openEditDialogBtn" class="bg-white text-green-800 rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-40">Bewerken</button>
+                    <button id="deleteBtn" class="bg-white text-green-800 rounded-lg transition-all hover:scale-105 hover:opacity-85 shadow-xl w-40">Verwijderen</button>
+                </div>
             </div>
         </div>
     @endforeach
+
+     <!-- Bewerkingsdialog -->
+     <dialog id="editDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-auto">
+                <h2 class="p-2 text-2xl text-green-800 text-center">Bewerken informatie huidige huisje</h2>
+    <div class="flex justify-center items-center text-green-700 text-center">
+    <form action="/addhouse" method="POST" enctype="multipart/form-data" class="space-y-4">
+    @csrf
+        <div class="flex flex-wrap justify-center text-black space-x-4">
+                <div class="flex flex-col items-center">
+                    <label for="house_name" class="mb-1">Soort huisje:</label>
+                    <input type="text" id="house_name" name="house_name" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                </div>
+                <div class="flex flex-col items-center">
+                    <label for="location_house" class="mb-1">Plaatsnaam huisje:</label>
+                    <input type="text" id="location_house" name="house_location" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center text-black space-x-4">
+                <div class="flex flex-col items-center">
+                    <label for="amount_people" class="mb-1">Hoeveel persoons:</label>
+                    <input type="number" id="amount_people" name="amount_people" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                </div>
+                <div class="flex flex-col items-center">
+                    <label for="amount_bedrooms" class="mb-1">Hoeveel slaapkamers:</label>
+                    <input type="number" id="amount_bedrooms" name="amount_bedrooms" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center text-black space-x-4">
+                <div class="flex flex-col items-center">
+                    <label for="zipcode" class="mb-1">Postcode huisje:</label>
+                    <input type="text" id="zipcode" name="zipcode" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                </div>
+                <div class="flex flex-col items-center">
+                    <label for="adress" class="mb-1">Adres huisje:</label>
+                    <input type="text" id="adress" name="adress" required class="p-2 border border-gray-300 rounded h-7 w-64">
+                </div>
+            </div>
+            <div class="flex flex-col text-black items-center">
+                <label for="description_location" class="mb-1">Omschrijving omgeving huisje:</label>
+                <textarea id="description_location" name="description_location" required class="p-2 border border-gray-300 rounded" rows="4" cols="50"></textarea>
+            </div>
+            <div class="flex flex-col text-black items-center">
+                <label for="description_house" class="mb-1">Omschrijving wat huisje bevat:</label>
+                <textarea id="description_house" name="description_house" required class="p-2 border border-gray-300 rounded" rows="4" cols="50"></textarea>
+            </div>
+            <div class="flex flex-col text-black items-center">
+                <label for="price" class="mb-1">Prijs per nacht:</label>
+                <input type="number" id="price" name="price" required class="p-2 border border-gray-300 rounded h-7 w-64">
+            </div>
+            <div class="flex flex-col text-black items-center">
+                <label for="image" class="mb-1">Voeg (max 20) afbeeldingen van het huisje toe:</label>
+                <input type="file" id="image" name="image" enctype="multipart/form-data" required class="p-2 border border-gray-300 rounded w-64">
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Verzend</button>
+                <button type="button" id="closeEditDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Terug</button>
+                </div>
+        </form>
+    </dialog>
+
+
+        </div>
+    </div>    
+        <dialog id="secondDialog" class="p-4 rounded-lg shadow-lg w-2/3 h-96">
+            <div class="flex flex-col items-center">
+                <h1 class="text-mg text-green-800"> Huidige omschrijving omgeving huisje: <h2 class="text-sm">(incomming tekst)</h4> </h1>
+            </div>
+            <br> <br>
+            <div class="flex flex-col items-center">
+            <h1 class="text-mg text-green-800"> Huidige omschrijving inhoud huisje: <h2 class="text-sm">(incomming tekst)</h4> </h1>
+            </div>
+            <br> <br> <br> <br> <br> <br> 
+            <div class="flex justify-center">
+            <button type="button" id="closeSecondDialogBtn" class="bg-green-800 text-white rounded cursor-pointer transition-all hover:scale-105 hover:opacity-85 hover:bg-green-700 w-48 mt-4 ml-4">Sluiten</button>
+        </div>
+    </dialog>
+</div>
+</div>
+
+
 
 
     <script>

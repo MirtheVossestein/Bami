@@ -38,4 +38,21 @@ Route::get('/reservecompleted', function () {
     return view('reservecompleted');
 });
 
+Route::get('/contactpage', function () {
+    return view('contactpage');
+});
+
+Route::get('/myreservations', function () {
+    return view('myreservations');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+
+
+
+
+
 

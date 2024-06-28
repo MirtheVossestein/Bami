@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1-16x16.png">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -28,7 +29,7 @@
       </div>
       <div class="space-x-4">
         <a href="houses" class="text-sm text-black absolute z-20 top-4 right-80 py-1 px-16 rounded-lg transition-all hover:bg-white shadow-lg bg-white p-2 hover:scale-105 hover:opacity-85">Vakantiehuizen</a>
-        <a href="contact" class="text-sm text-black absolute z-20 top-4 right-32 py-1 px-16 right-2 transition-all shadow-lg bg-white p-2 hover:scale-105 hover:opacity-85 rounded-lg hover:bg-white">Contact</a>
+        <a href="contactpage" class="text-sm text-black absolute z-20 top-4 right-32 py-1 px-16 right-2 transition-all shadow-lg bg-white p-2 hover:scale-105 hover:opacity-85 rounded-lg hover:bg-white">Contact</a>
         
         <button id="dropdownDefaultButton" class="absolute z-20 top-4 py-1 px-6 right-6 shadow-lg bg-white rounded-lg p-2 transition-all hover:scale-105 hover:opacity-85">
           <h1 class="text-sm text-black">Account</h1>
@@ -45,7 +46,7 @@
               <a href="ownerhouse" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn vakantiehuizen</a>
             </li>
             <li>
-              <a href="reservations" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn reserveringen</a>
+              <a href="myreservations" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mijn reserveringen</a>
             </li>
             <li>
               <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log uit</a>
@@ -64,7 +65,7 @@
       </div>
     </div>
   </div>
-
+  <div class="h-12 bg-green-700"></div>
   <div class="max-w-7xl mx-auto mt-8 px-4">
     <div class="bg-white shadow-md rounded-lg p-8">
       <div class="flex flex-col md:flex-row">
@@ -102,7 +103,7 @@
 </div>  
           <div class="flex justify-end space-x-4 mb-4">
             <button class="w-1/2 text-gray-800 py-2 rounded-lg font-bold">Reviews</button>
-            <a href="reservepage" class="w-1/2 bg-gray-200 text-gray-800 py-2 rounded-lg hover:scale-105 hover:opacity-85 transition-all font-bold inline-block text-center">Reserveren</a>
+            <a href="reservepage" class="w-1/2 bg-green-800 text-white transition-all cursor-pointer hover:bg-green-700 py-2 rounded-lg hover:scale-105 hover:opacity-85 font-bold inline-block text-center">Reserveren</a>
             </div>
 
         </div>

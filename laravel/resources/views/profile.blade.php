@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voltooid</title>
+  <title>Profiel</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" type="text/css" href="font-ubuntu.css">
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,14 +18,13 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  
 </head>
 
-<body class="ubuntu-medium bg-gray-100">
+<body class="ubuntu-medium bg-gray-100 flex flex-col min-h-screen">
   <div class="bg-green-800 h-28 text-white py-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
       <div>
-        <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl ">BaMihuisjes.com</a>
+        <a href="http://127.0.0.1:8000/" class="absolute top-2 left-4 z-20 text-white text-4xl">BaMihuisjes.com</a>
       </div>
       <div class="space-x-4">
         <a href="houses" class="text-sm text-black absolute z-20 top-4 right-80 py-1 px-16 rounded-lg transition-all hover:bg-white shadow-lg bg-white p-2 hover:scale-105 hover:opacity-85">Vakantiehuizen</a>
@@ -35,7 +34,6 @@
           <h1 class="text-sm text-black">Account</h1>
         </button>
         
-            
         @if(session('isLoggedIn'))
         <div id="dropdown" class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute right-6 top-14">
           <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
@@ -65,31 +63,37 @@
       </div>
     </div>
   </div>
-
   <div class="h-12 bg-green-700"></div>
-  
-  <div class="max-w-7xl mx-auto mt-8 px-4">
-    <div class="bg-white shadow-md rounded-lg p-8">
-        <div class="flex flex-col md:flex-row">
-            <div class="md:w-1/2">
-                <div class="h-80 md:h-104 bg-gray-300 rounded-lg mb-4">
-                    <img class="w-full h-full object-cover rounded-lg" src="{{ asset('images/Voorthuizen/HouseV.png') }}" alt="Voorthuizen">
-                </div>
-            </div>
-            <div class="md:w-1/2 md:pl-8 flex flex-col space-y-4">
-            <div>
-                  <h1 class="text-base text-xl text-green-800 font-bold">Uw reservering compleet!</h1>
-              </div>
-            </div>
-          </div>
-      </div>
+
+  <div class="flex-1 max-w-7xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-md flex items-center">
+    <div>
+      <img id="profileImage" src="/images/default-avatar.png" alt="Foto toevoegen" class="w-24 h-24 rounded-full object-cover">
+    </div>
+    <div class="ml-4">
+      <h1 class="text-xl font-semibold">Naam: INSERT NAAM BAS</h1>
+      <h1 class="text-lg font-semibold">Adres: INSERT ADRES BAS</h1>
+      <h1 class="text-lg font-semibold">E-mail: INSERT EMAIL BAS</h1>
+      <h1 class="text-lg font-semibold">Tel: INSERT NUMMER BAS</h1>
+
+      <form id="photoForm" class="mt-4">
+        <label for="photoInput" class="p-2 bg-green-800 text-white rounded transition-all cursor-pointer hover:bg-green-700 w-full">Kies een foto</label>
+        <input type="file" id="photoInput" class="hidden" accept="image/*">
+      </form>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <footer class="footer bg-green-800 text-center text-white py-3 mt-auto">
+    <div class="container mx-auto">
+      <p class="text-sm">&copy; 2024 Copyright: BaMihuisjes.com</p>
+    </div>
+  </footer>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const dropdownButton = document.getElementById('dropdownDefaultButton');
       const dropdownMenu = document.getElementById('dropdown');
+      const photoInput = document.getElementById('photoInput');
+      const profileImage = document.getElementById('profileImage');
 
       dropdownButton.addEventListener('mouseenter', function () {
         dropdownMenu.classList.remove('hidden');
@@ -110,8 +114,20 @@
       dropdownMenu.addEventListener('mouseenter', function () {
         dropdownMenu.classList.remove('hidden');
       });
+
+      photoInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            profileImage.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
     });
   </script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 

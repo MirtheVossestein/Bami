@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -28,8 +29,9 @@
             BaMihuisjes.com
         </a> 
         </div>
-       
     </nav>
+    <div class="h-12 bg-green-700"></div>
+
 
     <div class="max-w-lg mx-auto p-4 bg-white rounded shadow-md mt-20">
         <h2 class="text-2xl text-center font-bold mb-5">Registreer hier.</h2>
