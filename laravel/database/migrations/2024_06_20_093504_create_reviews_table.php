@@ -10,7 +10,7 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userId');
-            $table->unsignedBigInteger('houseId');
+            $table->unsignedBigInteger('house_id');
             $table->integer('stars');
             $table->string('date');
             $table->text('description');

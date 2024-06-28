@@ -8,7 +8,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['house_id', 'image']; // Ensure this matches your database columns
+    protected $fillable = ['house_id', 'image']; 
 
     public function getEncodedImageAttribute()
     {

@@ -9,14 +9,19 @@ use Illuminate\Support\Facades\Session;
 class ReviewController extends Controller
 {
     public function addReview(Request $request){
-        $review = new Review();
-    
-        $review->userId = Session::get('loggedInUserId');
-        $review->houseId = $request['houseId'];
-        $review->stars = $request['stars'];
-        $review->date = $request['date'];
-        $review->description = $request['description'];
-    
-        $review->save();
+        if(Session::get('loggedInUserId')){
+            $review = new Review();
+            $review->userId = Session::get('loggedInUserId');
+            $review->houseId = $request['houseId'];
+            $review->stars = $request['rating'];
+            $review->date = now()->toDateString();
+            $review->description = $request['description'];
+        
+            $review->save();
+
+            return view('index');
+        } else{
+            return view('index');
+        }
     }
 }

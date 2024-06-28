@@ -24,7 +24,7 @@ class HouseController extends Controller
         $house->DescriptionHouse = $request['description_house'];
         $house->price = $request['price'];
     
-        $house->save(); // Save the house first to generate an ID
+        $house->save(); 
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $imageFile) {
@@ -36,22 +36,31 @@ class HouseController extends Controller
             }
         }
 
-        $houses = House::all(); // Retrieve all houses
+        $houses = House::all(); 
     
         return view('ownerhouse', compact('houses'));
+    }
+
+    public function deleteHouse(Request $request)
+    {
+        $house = House::find($request['houseId']);
+
+        $house->delete();
+
+        return view('ownerhouse');
     }
     
     public function showHouses()
     {
-        $houses = House::all(); // Retrieve all houses
+        $houses = House::all(); 
 
-        return view('ownerhouse', compact('houses')); // Pass houses (with images) to the view
+        return view('ownerhouse', compact('houses')); 
     }
 
     public function displayHouses(){
         $houses = House::all();
         
-        // dd($houses[0]->images);
+        
         return view('houses', compact('houses'));
     }
 }
