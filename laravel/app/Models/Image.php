@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,5 +8,10 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['houseId', 'image'];
+    protected $fillable = ['house_id', 'image']; // Ensure this matches your database columns
+
+    public function getEncodedImageAttribute()
+    {
+        return base64_encode($this->image);
+    }
 }

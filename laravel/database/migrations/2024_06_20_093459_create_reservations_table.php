@@ -12,9 +12,7 @@ class CreateReservationsTable extends Migration
             $table->unsignedBigInteger('userId');
             $table->unsignedBigInteger('houseId');
             $table->string('startDay');
-            $table->string('startTime');
             $table->string('endDay');
-            $table->string('endTime');
             $table->timestamps();
         });
     }
